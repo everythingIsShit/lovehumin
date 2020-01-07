@@ -126,13 +126,13 @@ window.addEventListener("resize", onResize);
 requestAnimationFrame(render);
 
 window.onload=function starttime(){
-        time(h1,'2019/7/12');    // 在一起的时间 
+        time(h1,'2019/07/12');    // 在一起的时间 
         ptimer = setTimeout(starttime,1000); // 添加计时器
 }
 
 function time(obj,futimg){
       var nowtime = new Date().getTime(); // 现在时间转换为时间戳
-      var futruetime =  eval("new Date("+ futimg.replace(/\D+/g,",")+")").getTime(); // 未来时间转换为时间戳
+      var futruetime =  new Date(futimg).getTime(); // 未来时间转换为时间戳
       var msec = nowtime-futruetime; // 毫秒 未来时间-现在时间
       var time = (msec/1000);  // 毫秒/1000
       var day = parseInt(time/86400); // 天  24*60*60*1000 
